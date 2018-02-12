@@ -5,7 +5,9 @@ export default class Ball {
     this.boardWidth = boardWidth;
     this.boardHeight = boardHeight;
     this.direction = 1;
+
     this.reset();
+
     this.ping = new Audio('public/sounds/pong-01.wav');
   }
 
@@ -27,6 +29,7 @@ export default class Ball {
       this.y += this.vy;
       this.wallCollision();
       this.paddleCollision(player1, player2);
+      
       // Detect goal
       const rightGoal = this.x + this.radius >= this.boardWidth;
       const leftGoal = this.x - this.radius <= 0;
@@ -46,7 +49,7 @@ export default class Ball {
       while( this.vy === 0 ) {
       this.vy = Math.floor(Math.random() * 10 - 5);   
       }    
-      this.vx = this.direction * (6 - Math.abs(this.vy));
+      this.vx = this.direction * (6 - Math.abs(this.vy)); //find out what Math abs does here
     }
   
   wallCollision() {

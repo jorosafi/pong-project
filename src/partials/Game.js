@@ -42,7 +42,7 @@ export default class Game {
 
     this.score1 = new Score(this.width / 2 - 50, 30, 30);//make sure you undestand these numbers. they are form Jim's version
 		this.score2 = new Score(this.width / 2 + 25, 30, 30);
-
+ 
 		document.addEventListener('keydown', event => {
 			switch (event.key) {
 				case KEYS.spaceBar:
