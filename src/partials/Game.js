@@ -21,8 +21,8 @@ export default class Game {
 			this.height,
 			this.paddleWidth,
 			this.paddleHeight,
-			this.boardGap,
-			((this.height - this.paddleHeight) / 2),
+			this.boardGap, 
+			((this.height - this.paddleHeight) / 2),//I don't understand what this line of code is doing
 			KEYS.a,
 			KEYS.z
 		);
@@ -60,13 +60,17 @@ export default class Game {
 		this.gameElement.appendChild(svg);
 
 		this.board.render(svg);
+
 		this.player1.render(svg);
 		this.player2.render(svg);
+
 		this.ball.render(svg, this.player1, this.player2);
 		if (this.pause) {
 			return;
 		}
 		this.score1.render(svg, this.player1.score);
 		this.score2.render(svg, this.player2.score);
+
+
 	}
 }
