@@ -10,8 +10,11 @@ export default class Game {
 		this.element = element;
 		this.width = width;
 		this.height = height;
+
 		this.gameElement = document.getElementById(this.element);
+
 		this.board = new Board(this.width, this.height);
+		this.ball = new Ball(8, this.width, this.height); //this is one of the changes from Jim's version
 
 		this.paddleWidth = 8;
 		this.paddleHeight = 56;
@@ -22,7 +25,7 @@ export default class Game {
 			this.paddleWidth,
 			this.paddleHeight,
 			this.boardGap, 
-			((this.height - this.paddleHeight) / 2),//I don't understand what this line of code is doing
+			((this.height - this.paddleHeight) / 2),
 			KEYS.a,
 			KEYS.z
 		);
@@ -36,8 +39,9 @@ export default class Game {
 			KEYS.up,
 			KEYS.down
 		);
-	
-		this.ball = new Ball(8, this.width, this.height);
+
+    this.score1 = new Score(this.width / 2 - 50, 30, 30);//make sure you undestand these numbers. they are form Jim's version
+		this.score2 = new Score(this.width / 2 + 25, 30, 30);
 
 		document.addEventListener('keydown', event => {
 			switch (event.key) {
@@ -68,8 +72,7 @@ export default class Game {
 		if (this.pause) {
 			return;
 		}
-		this.score1.render(svg, this.player1.score);
-		this.score2.render(svg, this.player2.score);
+
 
 
 	}

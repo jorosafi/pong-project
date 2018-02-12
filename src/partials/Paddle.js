@@ -26,15 +26,16 @@ export default class Paddle {
     // either 0 or the y position minus speed
     // this.y = Math.max( 0, this.y - this.speed );
     this.y = this.y - this.speed;
-    console.log('up');
+    // console.log('up');
   }
   down() {
     // get the min number...
     // either the height of the board minus the height of the paddle
     // or the y position plus the speed
+    this.y = this.y + this.speed; // this is how they did initially in class, but this doesn't respect the borders of the board
     // this.y = Math.min( this.boardHeight - this.height, this.y + this.speed );
-    this.y = this.y + this.speed;
-    console.log('down');
+
+    // console.log('down');
   }
 
   render(svg) {
