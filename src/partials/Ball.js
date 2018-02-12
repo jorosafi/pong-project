@@ -36,7 +36,7 @@ export default class Ball {
         && (this.y >= topY && this.y <= bottomY) // ball Y is >= paddle top Y and <= paddle bottom Y
       ) {
         this.vx = -this.vx;
-        // this.ping.play();
+        this.ping.play();
       }
     } else {
       let paddle = player1.coordinates(player1.x, player1.y, player1.width, player1.height);
