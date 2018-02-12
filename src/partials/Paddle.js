@@ -9,6 +9,7 @@ export default class Paddle {
     this.y = y;
     this.speed = 10;
     this.score = 0;
+
     document.addEventListener('keydown', event => {
       switch (event.key) {
         case up:
@@ -38,6 +39,14 @@ export default class Paddle {
     // console.log('down');
   }
 
+  coordinates(x, y, width, height) {
+    let leftX = x;
+    let rightX = x + width;
+    let topY = y;
+    let bottomY = y + height;
+    return [leftX, rightX, topY, bottomY];
+  }
+
   render(svg) {
     let rect = document.createElementNS(SVG_NS, 'rect');
     rect.setAttributeNS(null, 'fill', 'white');
@@ -48,11 +57,5 @@ export default class Paddle {
     svg.appendChild(rect);
   }
 
-  coordinates(x, y, width, height) {
-    let leftX = x;
-    let rightX = x + width;
-    let topY = y;
-    let bottomY = y + height;
-    return [leftX, rightX, topY, bottomY];
-  }
+
 }

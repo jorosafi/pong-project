@@ -1,4 +1,5 @@
 import { SVG_NS } from '../settings';
+
 export default class Ball {
   constructor(radius, boardWidth, boardHeight) {
     this.radius = radius;
@@ -6,10 +7,10 @@ export default class Ball {
     this.boardHeight = boardHeight;
     this.direction = 1;
 
-    this.reset();
+    this.reset(); 
 
     this.ping = new Audio('public/sounds/pong-01.wav');
-  }
+  } //constructor ends
 
   goal(player) {
     player.score++;
@@ -18,6 +19,12 @@ export default class Ball {
   }
 
   render(svg, player1, player2) {
+      this.x += this.vx;
+      this.y += this.vy;
+
+      this.wallCollision();
+      this.paddleCollision(player1, player2);
+    
     // draw ball
       let circle = document.createElementNS(SVG_NS, 'circle');
       circle.setAttributeNS(null, 'r', this.radius);
@@ -25,10 +32,6 @@ export default class Ball {
       circle.setAttributeNS(null, 'cy', this.y);
       circle.setAttributeNS(null, 'fill', 'white');
       svg.appendChild(circle);
-      this.x += this.vx;
-      this.y += this.vy;
-      this.wallCollision();
-      this.paddleCollision(player1, player2);
       
       // Detect goal
       const rightGoal = this.x + this.radius >= this.boardWidth;
@@ -40,7 +43,7 @@ export default class Ball {
           this.goal(player2);
         this.direction = -1;
       }
-    }
+    }//render ends
   
   reset() {
       this.x = this.boardWidth / 2;

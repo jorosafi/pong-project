@@ -55,6 +55,10 @@ export default class Game {
 
 	render() {
 		// More code goes here...
+		if (this.pause) {
+			return;
+		}
+
 		this.gameElement.innerHTML = ''; 
 
 		let svg = document.createElementNS(SVG_NS, 'svg');
@@ -69,9 +73,6 @@ export default class Game {
 		this.player2.render(svg);
 
 		this.ball.render(svg, this.player1, this.player2);
-		if (this.pause) {
-			return;
-		}
 
 
 
