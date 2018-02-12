@@ -58,9 +58,9 @@ export default class Ball {
       const hitTop = this.y - this.radius <= 0;
       const hitBottom = this.y + this.radius >= this.boardHeight;
       if (hitLeft || hitRight) {
-        this.vx = -this.vx;
+        this.vx = -this.vx; //reset happens in the Game method
       } else if (hitTop || hitBottom) {
-        this.vy = -this.vy;
+        this.vy = -this.vy; 
       }
     }
 
