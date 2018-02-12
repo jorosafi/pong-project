@@ -5,11 +5,13 @@ export default class Board {
     this.width = width;
     this.height = height;
   }
+
   render(svg) {
     let rect = document.createElementNS(SVG_NS, 'rect');
     rect.setAttributeNS(null, 'fill', '#353535');
     rect.setAttributeNS(null, 'width', this.width);
     rect.setAttributeNS(null, 'height', this.height);
+
     let line = document.createElementNS(SVG_NS, 'line');
     line.setAttributeNS(null, 'x1', (this.width / 2));
     line.setAttributeNS(null, 'y1', 0);
@@ -18,9 +20,8 @@ export default class Board {
     line.setAttributeNS(null, 'stroke', 'white');
     line.setAttributeNS(null, 'stroke-dasharray', '20, 15');
     line.setAttributeNS(null, 'stroke-width', '4');
+    
     svg.appendChild(rect);
+    svg.appendChild(line);
   }
 }
-
-
-// does the import go here at the end or at the beggining of the file?

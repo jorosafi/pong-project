@@ -1,8 +1,8 @@
-import { SVG_NS } from '../settings';
 import Board from './Board';
-import KEYS from '../settings';
 import Paddle from './Paddle';
 import Ball from './Ball';
+import Score from './Score';
+import { SVG_NS, KEYS } from '../settings';
 
 export default class Game {
 
@@ -59,14 +59,14 @@ export default class Game {
 		svg.setAttributeNS(null, 'viewBox', `0 0 ${this.width} ${this.height}`);
 		this.gameElement.appendChild(svg);
 
-		// this.board.render(svg);
-		// this.player1.render(svg);
-		// this.player2.render(svg);
-		// this.ball.render(svg, this.player1, this.player2);
-		// if (this.pause) {
-		// 	return;
-		// }
-		// this.score1.render(svg, this.player1.score);
-		// this.score2.render(svg, this.player2.score);
+		this.board.render(svg);
+		this.player1.render(svg);
+		this.player2.render(svg);
+		this.ball.render(svg, this.player1, this.player2);
+		if (this.pause) {
+			return;
+		}
+		this.score1.render(svg, this.player1.score);
+		this.score2.render(svg, this.player2.score);
 	}
 }
