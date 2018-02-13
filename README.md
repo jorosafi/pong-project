@@ -25,3 +25,6 @@ A basic pong game using SVGs.
 **Player 2:**
 * ▲ : up
 * ▼: down
+
+Notes:
+- minute 8:30 in video 19 to fix keydown delay
