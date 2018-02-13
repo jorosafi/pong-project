@@ -77,7 +77,7 @@ export default class Paddle {
     
 
     let rect = document.createElementNS(SVG_NS, 'rect');
-    rect.setAttributeNS(null, 'fill', 'white');
+    rect.setAttributeNS(null, 'fill', '#fd5f00');
     rect.setAttributeNS(null, 'width', this.width);
     rect.setAttributeNS(null, 'height', this.height);
     rect.setAttributeNS(null, 'x', this.x); // x of the top left corner

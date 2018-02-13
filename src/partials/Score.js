@@ -1,11 +1,12 @@
 import { SVG_NS } from '../settings';
 
 export default class Score {
-  constructor(x, y, size) {
+  constructor(x, y, size, winningScore) {
     this.x = x;
     this.y = y;
     this.size = size;
-    this.winningSound = new Audio('public/sounds/pong-04.wav');
+    this.winningSound = new Audio('public/sounds/crowd-cheer.wav');
+    this.winningScore = winningScore
   }
   
   render(svg, score, player) {
@@ -18,15 +19,14 @@ export default class Score {
     text.textContent = score;
     svg.appendChild(text);
 
-    let winningScore = 3;
-    if(score === winningScore){
-      this.winningSound.play(); //sound not playing
+    if(score === this.winningScore){
+      this.winningSound.play(); 
 
       let winnerElement = document.getElementById('winner');
       winnerElement.innerHTML = ''
       let h2 = document.createElement('h2');
-      h2.innerHTML = `Thw winner is ${player}`;
-      winnerElement.appendChild(h2);    
+      h2.innerHTML = `The winner is ${player} - refresh page to play again`;
+      winnerElement.appendChild(h2);
       }
   } 
 }

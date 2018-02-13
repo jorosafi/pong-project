@@ -42,8 +42,9 @@ export default class Game {
 			'player2'
 		);
 
-    this.score1 = new Score(this.width / 2 - 50, 30, 30); 
-		this.score2 = new Score(this.width / 2 + 25, 30, 30);
+		this.winningScore = 3
+    this.score1 = new Score(this.width / 2 - 50, 30, 30, this.winningScore); 
+		this.score2 = new Score(this.width / 2 + 25, 30, 30, this.winningScore);
  
 		document.addEventListener('keydown', event => {
 			switch (event.key) {
@@ -58,7 +59,7 @@ export default class Game {
 
 	render() {
 		// More code goes here...
-		if (this.pause) {
+		if (this.pause || this.player1.score === this.winningScore || this.player2.score === this.winningScore) {
 			return;
 		}
 
@@ -79,9 +80,5 @@ export default class Game {
 
 		this.score1.render(svg, this.player1.score, 'Player1');
 		this.score2.render(svg, this.player2.score, 'Player2');
-
-		if(this.h2){
-			return;
-		}
 	}
 }

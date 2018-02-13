@@ -89,6 +89,18 @@ h1 {
   text-align: center;
 }
 
+h2{
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.7rem;
+  padding: 10px;
+}
+
+.instructions{
+  margin: 0 auto;
+  text-align: center;
+}
+
 /* Game Settings */
 .settings{
   display: flex;
