@@ -16,7 +16,7 @@ You can change the winning score on Game.js by changing the winningScore propert
 
 Refresh browser once a winner has been declared.
 
-## How this was built:
+##How this was built:
 This was the first time I used ocject oriented programming to build anything. The game uses 5 classes to build everything: a game class, a ball class, a board class, a paddle class, and a score class. 
 
 Each class sets the properties and methods for each element of the game and everything is compiled and rendered under the game class at Game.js. 
@@ -30,9 +30,10 @@ I attempted to create a user settings menu where users could change the ball spe
 
 Over the coming days, I will be working to get that up and running and will be updating the master branch once the menu settings is complete. Once that's done, the game will look something like this:
 
-![Settings Menu Screenshot](images/settings-screenshot)
+![Settings Menu Screenshot](images/settings-screenshot.png)
 
-##Setup repo locally:
+##Setup repo locally
+
 To set up a clone of the game locally:
 **Install dependencies:**
 
