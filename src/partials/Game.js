@@ -11,10 +11,10 @@ export default class Game {
 		this.width = width;
 		this.height = height;
 
-		this.gameElement = document.getElementById(this.element);
+		this.gameElement = document.getElementById(this.element); 
 
 		this.board = new Board(this.width, this.height);
-		this.ball = new Ball(8, this.width, this.height); //this is one of the changes from Jim's version
+		this.ball = new Ball(8, this.width, this.height); 
 
 		this.paddleWidth = 8;
 		this.paddleHeight = 56;
@@ -42,7 +42,7 @@ export default class Game {
 			'player2'
 		);
 
-		this.winningScore = 3
+		this.winningScore = 11 //change to set score at which game ends
     this.score1 = new Score(this.width / 2 - 50, 30, 30, this.winningScore); 
 		this.score2 = new Score(this.width / 2 + 25, 30, 30, this.winningScore);
  
@@ -53,18 +53,14 @@ export default class Game {
 					break;
 			}
 		});
-		
-		this.h2 = document.getElementsByTagName('h2');
-	}
+	}//constructor ends
 
 	render() {
-		// More code goes here...
 		if (this.pause || this.player1.score === this.winningScore || this.player2.score === this.winningScore) {
 			return;
-		}
+		} //game pauses if you hit space bar or if either player's scores reaches the winning score.
 
-		this.gameElement.innerHTML = ''; 
-
+		this.gameElement.innerHTML = ''; //used to empty 'game' element in html before appending svg
 		let svg = document.createElementNS(SVG_NS, 'svg');
 		svg.setAttributeNS(null, 'width', this.width);
 		svg.setAttributeNS(null, 'height', this.height);

@@ -1,6 +1,6 @@
 import { SVG_NS } from '../settings';
 
-export default class Score {
+export default class Score {// winning Score used to find out who wins
   constructor(x, y, size, winningScore) {
     this.x = x;
     this.y = y;
@@ -9,7 +9,7 @@ export default class Score {
     this.winningScore = winningScore
   }
   
-  render(svg, score, player) {
+  render(svg, score, player) {//first render score box
     let text = document.createElementNS(SVG_NS, 'text');
     text.setAttributeNS(null, 'x', this.x);
     text.setAttributeNS(null, 'y', this.y);
@@ -19,6 +19,7 @@ export default class Score {
     text.textContent = score;
     svg.appendChild(text);
 
+    //then track score to see who will win and append the winner's name
     if(score === this.winningScore){
       this.winningSound.play(); 
 

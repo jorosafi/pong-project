@@ -99,25 +99,6 @@ h2{
 .instructions{
   margin: 0 auto;
   text-align: center;
+  padding: 10px;
 }
 
-/* Game Settings */
-.settings{
-  display: flex;
-  justify-content: space-around;
-  align-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  width: 800px;
-  margin: 0 auto;
-  padding: 20px 0px;
-}
-
-.select{
-  padding: 10px 30px;
-  flex-basis: 50%;
-}
-
-.button{
-  flex-basis: 25%;
-}

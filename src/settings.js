@@ -1,7 +1,7 @@
 export const SVG_NS = 'http://www.w3.org/2000/svg';
 
 export const KEYS = {
-    a: 'a', // this is an error in the bundle
+    a: 'a', 
     z: 'z',
     up: 'ArrowUp',
     down: 'ArrowDown',

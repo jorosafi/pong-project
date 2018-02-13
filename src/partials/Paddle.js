@@ -13,45 +13,22 @@ export default class Paddle {
     this.player = player;
     this.keyState = {};
 
+    //property used for smooth scrolling of paddles
     document.addEventListener('keydown', event =>{
       this.keyState[event.key || event.which] = true;
-    }, true);
+    }, true); 
 
     document.addEventListener('keyup', event =>{
       this.keyState[event.key || event.which] = false;
     }, true);
-
-    
-    
-    
-    
-    // document.addEventListener('keydown', event => {
-    //   switch (event.key) {
-    //     case up:
-    //       this.up();
-    //       break;
-    //     case down:
-    //       this.down(); 
-    //       break;
-    //   }
-    // });
   }
   
   up() {
-    // get the max number...
-    // either 0 or the y position minus speed
-    this.y = Math.max( 0, this.y - this.speed );
-    // this.y = this.y - this.speed;
-    // console.log('up');
+    this.y = Math.max( 0, this.y - this.speed ); // sets the top limit of the paddles by making y switch to 0 when paddle reaches top of board. 
   }
-  down() {
-    // get the min number...
-    // either the height of the board minus the height of the paddle
-    // or the y position plus the speed
-    // this.y = this.y + this.speed; // this is how they did initially in class, but this doesn't respect the borders of the board
-    this.y = Math.min( this.boardHeight - this.height, this.y + this.speed );
 
-    // console.log('down');
+  down() {
+    this.y = Math.min( this.boardHeight - this.height, this.y + this.speed ); // sets the bottom limit of the paddles by making y switch to boardHeight when paddle reaches top of board. 
   }
 
   coordinates(x, y, width, height) {
@@ -60,11 +37,10 @@ export default class Paddle {
     let topY = y;
     let bottomY = y + height;
     return [leftX, rightX, topY, bottomY];
-  }
+  } // used in Ball.js to change the position of the paddles
 
   render(svg) {
-
-    //player movement
+    // setting keys that move paddles 
     if (this.keyState['a'] && this.player === 'player1')
       {this.up()}
     if (this.keyState['z'] && this.player === 'player1')
@@ -74,16 +50,12 @@ export default class Paddle {
     if (this.keyState['ArrowDown'] && this.player === 'player2')
       {this.down()}
 
-    
-
     let rect = document.createElementNS(SVG_NS, 'rect');
     rect.setAttributeNS(null, 'fill', '#fd5f00');
     rect.setAttributeNS(null, 'width', this.width);
     rect.setAttributeNS(null, 'height', this.height);
-    rect.setAttributeNS(null, 'x', this.x); // x of the top left corner
-    rect.setAttributeNS(null, 'y', this.y); // y of the top left corner
+    rect.setAttributeNS(null, 'x', this.x); 
+    rect.setAttributeNS(null, 'y', this.y); 
     svg.appendChild(rect);
   }
-
-
 }

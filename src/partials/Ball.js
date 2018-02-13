@@ -9,8 +9,8 @@ export default class Ball {
 
     this.reset(); 
 
-    this.ping = new Audio('public/sounds/pong-01.wav');
-    this.scoreSound = new Audio('public/sounds/pong-03.wav'); //insert a better sound from the internet here
+    this.ping = new Audio('public/sounds/pong-01.wav'); //paddle bounce sound
+    this.scoreSound = new Audio('public/sounds/score.wav'); //score sound
   } //constructor ends
 
   wallCollision() {
@@ -28,24 +28,23 @@ export default class Ball {
   paddleCollision(player1, player2) {
     // if moving toward the right end...
     if (this.vx > 0) {
-      // detect player2 paddle collision
       let paddle = player2.coordinates(player2.x, player2.y, player2.width, player2.height);
       let [ leftX, rightX, topY, bottomY ] = paddle;
       if (
-        (this.x + this.radius >= leftX) // right edge of the ball is >= left edge of the paddle
-        && (this.x + this.radius <= rightX) // right edge of the ball is <= right edge of the paddle
-        && (this.y >= topY && this.y <= bottomY) // ball Y is >= paddle top Y and <= paddle bottom Y
+        (this.x + this.radius >= leftX) 
+        && (this.x + this.radius <= rightX) 
+        && (this.y >= topY && this.y <= bottomY) 
       ) {
         this.vx = -this.vx;
         this.ping.play();
       }
-    } else {
+    } else {//moving toward the left end...
       let paddle = player1.coordinates(player1.x, player1.y, player1.width, player1.height);
       let [ leftX, rightX, topY, bottomY ] = paddle;
       if (
-        (this.x - this.radius <= rightX) // left edge of the ball is <= right edge of the paddle
-        && (this.x - this.radius >= leftX) // left edge of the ball is >= left edge of the paddle
-        && (this.y >= topY && this.y <= bottomY) // ball Y is >= paddle top Y or <= paddle bottom
+        (this.x - this.radius <= rightX) 
+        && (this.x - this.radius >= leftX) 
+        && (this.y >= topY && this.y <= bottomY) 
       ) {
         this.vx = -this.vx;
         this.ping.play();
@@ -53,7 +52,7 @@ export default class Ball {
     }
   }//paddle collision ends
 
-  reset() {
+  reset() { //ball resets to center of screen after scoring
     this.x = this.boardWidth / 2;
     this.y = this.boardHeight / 2;
     this.vy = 0;
@@ -67,11 +66,7 @@ export default class Ball {
     player.score++;
     this.reset();
     this.scoreSound.play();
-    
-    // console.log(player.score);
   }
-
- 
 
   render(svg, player1, player2) {
       this.x += this.vx;
@@ -88,7 +83,7 @@ export default class Ball {
       circle.setAttributeNS(null, 'fill', '#FFFF00');
       svg.appendChild(circle);
       
-      // Detect  Goal
+    // Detect  Goal
       const rightGoal = this.x + this.radius >= this.boardWidth;
       const leftGoal = this.x -  this.radius <= 0;
       if (rightGoal) {
@@ -98,8 +93,5 @@ export default class Ball {
           this.goal(player2);
         this.direction = -1;
       }
-
     }//render ends
-
-
-}
+}//class ends
