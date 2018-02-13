@@ -7,6 +7,42 @@
 	<body>
 		<div class="game-wrapper">
 			<h1>Pong</h1>
+			<form action="" class="settings">
+				<div class="paddle-size select">
+					<p class="question">Select Paddle Size</p>
+					<label for="paddle-size1">Small</label>
+					<input type="radio" name="paddle-size" id="paddle-size1" value="small">
+					<label for="paddle-size2">Medium</label>
+					<input type="radio" name="paddle-size" id="paddle-size2" value="medium">
+					<label for="paddle-size3">Large</label>
+					<input type="radio" name="paddle-size" id="paddle-size3" value="large">
+				</div>
+				<div class="ball-size select">
+					<p class="question">Select Ball Size</p>
+					<label for="ball-size1">Small</label>
+					<input type="radio" name="ball-size" id="ball-size1" value="small">
+					<label for="ball-size2">Medium</label>
+					<input type="radio" name="ball-size" id="ball-size2" value="medium">
+					<label for="ball-size3">Large</label>
+					<input type="radio" name="ball-size" id="ball-size3" value="large">
+				</div>
+				<div class="ball-speed select">
+					<p class="question">Select Ball Speed</p>
+					<label for="ball-speed1">Slow</label>
+					<input type="radio" name="ball-speed" id="ball-speed1" value="slow">
+					<label for="ball-speed2">Medium</label>
+					<input type="radio" name="ball-speed" id="ball-speed2" value="medium">
+					<label for="ball-speed3">Fast</label>
+					<input type="radio" name="ball-speed" id="ball-speed3" value="fast">
+				</div>
+				<div class="winning-score select">
+					<p class="question">Select Winning Score</p>
+					<input type="text" name="" value="">
+				</div>
+				<button class="button select">Save Settings</button>
+			</form>
+
+			<div id="winner"></div>
 			<div id="game"></div>
 
 			<!-- Rough-out your SVG mark-up here to start... -->

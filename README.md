@@ -28,3 +28,5 @@ A basic pong game using SVGs.
 
 Notes:
 - minute 8:30 in video 19 to fix keydown delay
+- explored delay or timeout to give some time between score and when next ball starts
+- score.js has a method that lets me select the winner, but I can't pause the game. In game.js I called a this.h2 property to try to render the pause through game.js using return, but didn't work. If you can't figure it out, delete that property. 

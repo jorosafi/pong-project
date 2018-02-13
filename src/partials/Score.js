@@ -5,9 +5,10 @@ export default class Score {
     this.x = x;
     this.y = y;
     this.size = size;
+    this.winningSound = new Audio('public/sounds/pong-04.wav');
   }
   
-  render(svg, score) {
+  render(svg, score, player) {
     let text = document.createElementNS(SVG_NS, 'text');
     text.setAttributeNS(null, 'x', this.x);
     text.setAttributeNS(null, 'y', this.y);
@@ -16,5 +17,16 @@ export default class Score {
     text.setAttributeNS(null, 'fill', 'white');
     text.textContent = score;
     svg.appendChild(text);
+
+    let winningScore = 3;
+    if(score === winningScore){
+      this.winningSound.play(); //sound not playing
+
+      let winnerElement = document.getElementById('winner');
+      winnerElement.innerHTML = ''
+      let h2 = document.createElement('h2');
+      h2.innerHTML = `Thw winner is ${player}`;
+      winnerElement.appendChild(h2);    
+      }
   } 
 }

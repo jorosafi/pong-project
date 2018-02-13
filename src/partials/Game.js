@@ -42,7 +42,7 @@ export default class Game {
 			'player2'
 		);
 
-    this.score1 = new Score(this.width / 2 - 50, 30, 30);//make sure you undestand these numbers. they are form Jim's version
+    this.score1 = new Score(this.width / 2 - 50, 30, 30); 
 		this.score2 = new Score(this.width / 2 + 25, 30, 30);
  
 		document.addEventListener('keydown', event => {
@@ -52,7 +52,8 @@ export default class Game {
 					break;
 			}
 		});
-		// Other code goes here...
+		
+		this.h2 = document.getElementsByTagName('h2');
 	}
 
 	render() {
@@ -76,8 +77,11 @@ export default class Game {
 
 		this.ball.render(svg, this.player1, this.player2);
 
-		this.score1.render(svg, this.player1.score);
-		this.score2.render(svg, this.player2.score);
+		this.score1.render(svg, this.player1.score, 'Player1');
+		this.score2.render(svg, this.player2.score, 'Player2');
 
+		if(this.h2){
+			return;
+		}
 	}
 }
