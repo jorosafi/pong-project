@@ -20,10 +20,6 @@ export default class Paddle {
     document.addEventListener('keyup', event =>{
       this.keyState[event.key || event.which] = false;
     }, true);
-
-    
-    
-    
     
     // document.addEventListener('keydown', event => {
     //   switch (event.key) {
