@@ -58,7 +58,6 @@ export default class Game {
 	}
 
 	render() {
-		// More code goes here...
 		if (this.pause || this.player1.score === this.winningScore || this.player2.score === this.winningScore) {
 			return;
 		}

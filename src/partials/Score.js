@@ -22,11 +22,28 @@ export default class Score {
     if(score === this.winningScore){
       this.winningSound.play(); 
 
-      let winnerElement = document.getElementById('winner');
-      winnerElement.innerHTML = ''
-      let h2 = document.createElement('h2');
-      h2.innerHTML = `The winner is ${player} - refresh page to play again`;
-      winnerElement.appendChild(h2);
+      let winnerText = document.createElementNS(SVG_NS, 'text');
+      winnerText.setAttributeNS(null, 'x', '185');
+      winnerText.setAttributeNS(null, 'y', '148');
+      winnerText.setAttributeNS(null, 'font-family', '"Silkscreen Web", monotype');
+      winnerText.setAttributeNS(null, 'font-size', '35');
+      winnerText.setAttributeNS(null, 'fill', 'white');
+      winnerText.textContent = `The winner is ${player}!`;
+      svg.appendChild(winnerText);
+
+      
+      document.getElementById('restart').style.display='block';
+
+      // let show = function (elem) {
+      //   elem.style.display = 'block';
+      // };
+
+
+    //   let winnerElement = document.getElementById('winner');
+    //   winnerElement.innerHTML = ''
+    //   let h2 = document.createElement('h2');
+    //   h2.innerHTML = `The winner is ${player} - refresh page to play again`;
+    //   winnerElement.appendChild(h2);
       }
   } 
 }

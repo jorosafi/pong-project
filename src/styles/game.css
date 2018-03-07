@@ -121,3 +121,17 @@ h2{
 .button{
   flex-basis: 25%;
 }
+
+.restart-form{
+  margin: 0 auto;
+  display: flex;
+}
+.restart{
+  padding: 20px 50px;
+  margin: 0 auto;
+  background: #27b20e;
+  color: white;
+  font-family: "Silkscreen Web", monotype;
+  font-size: 2rem;
+  display: none;
+}

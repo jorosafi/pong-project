@@ -7,6 +7,11 @@ export default class UserSettings {
     this.ballSpeed = 6;
     this.winnerScore = 11;
 
+//     .checked() - checks if radio button selected
+// .value() - gets the value of the radio button 
+// constructor includes the variables you are trying to set (ball size, paddle size, ball speed) as well as the variables for traversing the DOM. 
+
+
   }
 
   renderSettings(){
