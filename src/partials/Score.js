@@ -33,17 +33,6 @@ export default class Score {
 
       
       document.getElementById('restart').style.display='block';
-
-      // let show = function (elem) {
-      //   elem.style.display = 'block';
-      // };
-
-
-    //   let winnerElement = document.getElementById('winner');
-    //   winnerElement.innerHTML = ''
-    //   let h2 = document.createElement('h2');
-    //   h2.innerHTML = `The winner is ${player} - refresh page to play again`;
-    //   winnerElement.appendChild(h2);
       }
   } 
 }
