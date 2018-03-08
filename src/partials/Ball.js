@@ -59,7 +59,7 @@ export default class Ball {
     while( this.vy === 0 ) {
     this.vy = Math.floor(Math.random() * 10 - 5);   
     }    
-    this.vx = this.direction * (8 - Math.abs(this.vy)); //find out what Math abs does here
+    this.vx = this.direction * (8 - Math.abs(this.vy)); 
   }
 
   goal(player) {

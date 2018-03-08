@@ -31,7 +31,6 @@ export default class Score {// winning Score used to find out who wins
       winnerText.setAttributeNS(null, 'fill', 'white');
       winnerText.textContent = `The winner is ${player}!`;
       svg.appendChild(winnerText);
-
       
       document.getElementById('restart').style.display='block';
       }
