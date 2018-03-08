@@ -12,28 +12,20 @@ export default class Game {
 		this.width = width;
 		this.height = height;
 
-
-
-    let ballDropdown = document.getElementById('ball-size');
-    let userBallSize = ballDropdown.options[ballDropdown.selectedIndex].value;
-
-    let paddleDropdown = document.getElementById('paddle-size');
-    let userPaddleHeight = paddleDropdown.options[paddleDropdown.selectedIndex].value;
-
-    let scoreDropdown = document.getElementById('winning-score');
-    let userWinningScore = scoreDropdown.options[scoreDropdown.selectedIndex].value;
-
 		this.customSettings = new UserSettings();
-		this.customSettings.checkForm();
+		const customSettings = this.customSettings.checkForm();
+		let {userBallSize, userPaddleHeight, userWinningScore} = customSettings;
+
+		console.log(this.customSettings);
 
 		this.gameElement = document.getElementById(this.element);
+		this.paddleWidth = 8;
+		this.paddleHeight = userPaddleHeight || 56;
+		this.ballSize = userBallSize || 8;
+		this.boardGap = 10;
 
 		this.board = new Board(this.width, this.height);
-		this.ball = new Ball(8, this.width, this.height);
-
-		this.paddleWidth = 8;
-		this.paddleHeight = 56;
-		this.boardGap = 10;
+		this.ball = new Ball(this.ballSize, this.width, this.height);
 
 		this.player1 = new Paddle(
 			this.height,
@@ -57,7 +49,7 @@ export default class Game {
 			'player2'
 		);
 
-		this.winningScore = 3;
+		this.winningScore = userWinningScore || 3;
     this.score1 = new Score(this.width / 2 - 50, 30, 30, this.winningScore); 
 		this.score2 = new Score(this.width / 2 + 25, 30, 30, this.winningScore);
  

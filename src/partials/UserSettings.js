@@ -2,16 +2,9 @@ import { SVG_NS } from '../settings';
 
 export default class UserSettings {
 
-  constructor(userBallSize, userPaddleHeight, userWinningScore) {
-    // let ballDropdown = document.getElementById('ball-size');
-    // this.userBallSize = ballDropdown.options[ballDropdown.selectedIndex].value;
+  // constructor() {
 
-    // let paddleDropdown = document.getElementById('paddle-size');
-    // this.userPaddleHeight = paddleDropdown.options[paddleDropdown.selectedIndex].value;
-
-    // let scoreDropdown = document.getElementById('winning-score');
-    // this.userWinningScore = scoreDropdown.options[scoreDropdown.selectedIndex].value;
-  }
+  // }
 
   checkForm(){
     document.getElementById('settings-button').addEventListener('click', function(e){
@@ -26,9 +19,14 @@ export default class UserSettings {
       let scoreDropdown = document.getElementById('winning-score');
       let userWinningScore = scoreDropdown.options[scoreDropdown.selectedIndex].value;
 
-      console.log(userBallSize);
-      console.log(userPaddleHeight);
-      console.log(userWinningScore);
+      return {
+        userBallSize,
+        userPaddleHeight,
+        userWinningScore
+      }
+      // console.log(userBallSize);
+      // console.log(userPaddleHeight);
+      // console.log(userWinningScore);
     });
   }
 }
