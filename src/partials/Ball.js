@@ -9,6 +9,8 @@ export default class Ball {
 
     this.reset(); 
 
+    
+
     this.ping = new Audio('public/sounds/pong-01.wav');
     this.scoreSound = new Audio('public/sounds/pong-03.wav'); //insert a better sound from the internet here
   } //constructor ends
@@ -60,18 +62,14 @@ export default class Ball {
     while( this.vy === 0 ) {
     this.vy = Math.floor(Math.random() * 10 - 5);   
     }    
-    this.vx = this.direction * (8 - Math.abs(this.vy)); //find out what Math abs does here
+    this.vx = this.direction * (8 - Math.abs(this.vy));
   }
 
   goal(player) {
     player.score++;
     this.reset();
     this.scoreSound.play();
-    
-    // console.log(player.score);
   }
-
- 
 
   render(svg, player1, player2) {
       this.x += this.vx;

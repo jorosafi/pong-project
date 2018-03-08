@@ -3,6 +3,7 @@ import Paddle from './Paddle';
 import Ball from './Ball';
 import Score from './Score';
 import { SVG_NS, KEYS } from '../settings';
+import UserSettings from './UserSettings';
 
 export default class Game {
 
@@ -11,10 +12,13 @@ export default class Game {
 		this.width = width;
 		this.height = height;
 
+		this.customSettings = new UserSettings('1','2','3','4');
+		this.customSettings.checkForm();
+
 		this.gameElement = document.getElementById(this.element);
 
 		this.board = new Board(this.width, this.height);
-		this.ball = new Ball(8, this.width, this.height); //this is one of the changes from Jim's version
+		this.ball = new Ball(8, this.width, this.height);
 
 		this.paddleWidth = 8;
 		this.paddleHeight = 56;
