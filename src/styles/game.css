@@ -115,11 +115,9 @@ h2{
 
 .select{
   padding: 10px 30px;
-  flex-basis: 50%;
 }
 
 .button{
-  flex-basis: 25%;
 }
 
 .restart-form{

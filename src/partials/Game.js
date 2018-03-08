@@ -12,7 +12,18 @@ export default class Game {
 		this.width = width;
 		this.height = height;
 
-		this.customSettings = new UserSettings('1','2','3','4');
+
+
+    let ballDropdown = document.getElementById('ball-size');
+    let userBallSize = ballDropdown.options[ballDropdown.selectedIndex].value;
+
+    let paddleDropdown = document.getElementById('paddle-size');
+    let userPaddleHeight = paddleDropdown.options[paddleDropdown.selectedIndex].value;
+
+    let scoreDropdown = document.getElementById('winning-score');
+    let userWinningScore = scoreDropdown.options[scoreDropdown.selectedIndex].value;
+
+		this.customSettings = new UserSettings();
 		this.customSettings.checkForm();
 
 		this.gameElement = document.getElementById(this.element);
@@ -46,7 +57,7 @@ export default class Game {
 			'player2'
 		);
 
-		this.winningScore = 3
+		this.winningScore = 3;
     this.score1 = new Score(this.width / 2 - 50, 30, 30, this.winningScore); 
 		this.score2 = new Score(this.width / 2 + 25, 30, 30, this.winningScore);
  
